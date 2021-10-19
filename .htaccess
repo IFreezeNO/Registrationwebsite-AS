@@ -1,0 +1,11 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^/?show/(.*?)/?$ /show.php?id=$1 [L]
+
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /show\.php\?id=([^\&\ ]+)
+RewriteRule ^/?show\.php$ /show/%1? [L,R=301]
+
+
+php_flag output_buffering on
+
